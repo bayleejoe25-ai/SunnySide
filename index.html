@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Caterpillar</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Alice&family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#FFF8EE">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background:#FFF8EE;
+font-family:Poppins,sans-serif;
+color:#7A5C58;
+overflow-x:hidden;
+}
+
+/* SPLASH */
+
+#splash{
+position:fixed;
+inset:0;
+background:#FFF8EE;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+z-index:9999;
+transition:opacity .5s ease;
+}
+
+#splash img{
+width:140px;
+height:140px;
+object-fit:contain;
+animation:float 2s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0px);}
+50%{transform:translateY(-8px);}
+100%{transform:translateY(0px);}
+}
+
+.loading-text{
+font-family:"Playfair Display",serif;
+margin-top:12px;
+font-size:15px;
+opacity:.8;
+}
+
+/* HEADER */
+
+header{
+padding:24px 20px 10px;
+}
+
+.logo-title{
+font-family:Alice,serif;
+font-size:34px;
+}
+
+.subtitle{
+font-family:"Playfair Display",serif;
+font-size:14px;
+opacity:.75;
+margin-top:4px;
+}
+
+/* APP */
+
+.page{
+display:none;
+padding:20px;
+padding-bottom:110px;
+animation:fade .3s ease;
+}
+
+.page.active{
+display:block;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(10px);
+}
+to{
+opacity:1;
+transform:translateY(0px);
+}
+}
+
+/* CARDS */
+
+.card{
+background:white;
+padding:18px;
+border-radius:22px;
+margin-bottom:16px;
+box-shadow:0 4px 12px rgba(0,0,0,.05);
+}
+
+.card-title{
+font-family:"Playfair Display",serif;
+font-size:17px;
+margin-bottom:8px;
+}
+
+.big-number{
+font-size:32px;
+font-weight:600;
+margin-top:6px;
+}
+
+.soft{
+opacity:.7;
+font-size:14px;
+}
+
+/* INPUTS */
+
+input{
+width:100%;
+padding:14px;
+border:none;
+border-radius:14px;
+background:#f8f3ed;
+margin-top:10px;
+font-family:Poppins;
+font-size:14px;
+outline:none;
+}
+
+button.main-btn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:16px;
+background:#7A5C58;
+color:white;
+font-family:Poppins;
+font-weight:500;
+margin-top:14px;
+}
+
+/* NAV */
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+right:0;
+background:#FFF8EE;
+border-top:1px solid #eadfd1;
+display:flex;
+justify-content:space-around;
+padding:14px 0;
+z-index:100;
+}
+
+.nav-btn{
+background:none;
+border:none;
+font-family:Poppins;
+font-size:12px;
+color:#7A5C58;
+opacity:.65;
+}
+
+.nav-btn.active{
+opacity:1;
+font-weight:600;
+}
+
+/* PROGRESS */
+
+.progress-bar{
+width:100%;
+height:12px;
+background:#f0e7dc;
+border-radius:999px;
+overflow:hidden;
+margin-top:10px;
+}
+
+.progress-fill{
+height:100%;
+width:42%;
+background:#E85D5D;
+border-radius:999px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SPLASH -->
+
+<div id="splash">
+
+<img src="https://files.catbox.moe/0ruesx.png" alt="logo">
+
+<div class="loading-text">
+Growing your routine...
+</div>
+
+</div>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="logo-title">
+Caterpillar
+</div>
+
+<div class="subtitle">
+your cozy wellness companion
+</div>
+
+</header>
+
+<!-- HOME -->
+
+<section class="page active" id="home">
+
+<div class="card">
+<div class="card-title">Today's Calories</div>
+<div class="big-number">1,240 / 1,650</div>
+<div class="soft">you're doing amazing today 🌱</div>
+</div>
+
+<div class="card">
+<div class="card-title">Goal Progress</div>
+
+<div class="progress-bar">
+<div class="progress-fill"></div>
+</div>
+
+<div class="soft" style="margin-top:10px;">
+42% toward your August goal
+</div>
+</div>
+
+<div class="card">
+<div class="card-title">Water Intake</div>
+<div class="big-number">5 / 8 cups</div>
+</div>
+
+<div class="card">
+<div class="card-title">Today's Reminder</div>
+<div class="soft">
+Consistency matters more than perfection.
+</div>
+</div>
+
+</section>
+
+<!-- GOALS -->
+
+<section class="page" id="goals">
+
+<div class="card">
+<div class="card-title">Goal Planner</div>
+
+<input type="number" placeholder="Current Weight">
+
+<input type="number" placeholder="Goal Weight">
