@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Caterpillar</title>
+<title>SunnySide</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Alice&family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<link rel="manifest" href="manifest.json">
-
-<meta name="theme-color" content="#FFF8EE">
 
 <style>
 
@@ -79,7 +75,7 @@ opacity:.75;
 margin-top:4px;
 }
 
-/* APP */
+/* PAGES */
 
 .page{
 display:none;
@@ -178,6 +174,7 @@ font-family:Poppins;
 font-size:12px;
 color:#7A5C58;
 opacity:.65;
+cursor:pointer;
 }
 
 .nav-btn.active{
@@ -212,7 +209,7 @@ border-radius:999px;
 
 <div id="splash">
 
-<img src="https://files.catbox.moe/0ruesx.png" alt="logo">
+<img src="https://files.catbox.moe/0ruesx.png" alt="SunnySide Logo">
 
 <div class="loading-text">
 Growing your routine...
@@ -225,7 +222,7 @@ Growing your routine...
 <header>
 
 <div class="logo-title">
-Caterpillar
+SunnySide
 </div>
 
 <div class="subtitle">
@@ -280,3 +277,147 @@ Consistency matters more than perfection.
 <input type="number" placeholder="Current Weight">
 
 <input type="number" placeholder="Goal Weight">
+
+<input type="date">
+
+<button class="main-btn">
+Create Goal Plan
+</button>
+
+</div>
+
+</section>
+
+<!-- MEALS -->
+
+<section class="page" id="meals">
+
+<div class="card">
+<div class="card-title">Meal Schedule</div>
+
+<div class="soft">
+Breakfast · 8:00 AM
+</div>
+
+<br>
+
+<div class="soft">
+Lunch · 1:00 PM
+</div>
+
+<br>
+
+<div class="soft">
+Dinner · 6:30 PM
+</div>
+
+</div>
+
+</section>
+
+<!-- WORKOUTS -->
+
+<section class="page" id="workouts">
+
+<div class="card">
+<div class="card-title">Workout Generator</div>
+
+<div class="soft">
+• Squats x15
+<br><br>
+• Glute Bridges x20
+<br><br>
+• Plank x45 sec
+</div>
+
+</div>
+
+</section>
+
+<!-- PROGRESS -->
+
+<section class="page" id="progress">
+
+<div class="card">
+<div class="card-title">Progress Tracker</div>
+
+<div class="soft">
+Your journey is just beginning 🌿
+</div>
+
+</div>
+
+</section>
+
+<!-- NAVIGATION -->
+
+<div class="bottom-nav">
+
+<button class="nav-btn active" onclick="showPage('home', this)">
+Home
+</button>
+
+<button class="nav-btn" onclick="showPage('goals', this)">
+Goals
+</button>
+
+<button class="nav-btn" onclick="showPage('meals', this)">
+Meals
+</button>
+
+<button class="nav-btn" onclick="showPage('workouts', this)">
+Workout
+</button>
+
+<button class="nav-btn" onclick="showPage('progress', this)">
+Progress
+</button>
+
+</div>
+
+<script>
+
+/* SPLASH SCREEN */
+
+window.onload = () => {
+
+setTimeout(() => {
+
+const splash = document.getElementById("splash");
+
+splash.style.opacity = "0";
+
+setTimeout(() => {
+splash.style.display = "none";
+}, 500);
+
+}, 1800);
+
+};
+
+/* PAGE NAVIGATION */
+
+function showPage(pageId, btn){
+
+const pages = document.querySelectorAll(".page");
+
+pages.forEach(page=>{
+page.classList.remove("active");
+});
+
+document.getElementById(pageId).classList.add("active");
+
+const buttons = document.querySelectorAll(".nav-btn");
+
+buttons.forEach(button=>{
+button.classList.remove("active");
+});
+
+btn.classList.add("active");
+
+}
+
+</script>
+
+</body>
+</html>
